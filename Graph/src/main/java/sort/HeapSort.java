@@ -1,14 +1,16 @@
 package sort;
 
+import utils.AlgoUtil;
+
 /**
  * Created by usman on 04/03/2014.
  */
 public class HeapSort {
 
     public static void main(String[] args) {
-        Integer values[] = {0, 3, 2, 1, 4};
+        Integer values[] = AlgoUtil.Distribution.SAWTOOTH.create(10);
         HeapSort.sort(values);
-        SortingUtil.print(values);
+        AlgoUtil.print(values);
 
     }
 
@@ -19,38 +21,29 @@ public class HeapSort {
             sink(keys, k, size);
         }
         while (size > 1) {
-            SortingUtil.exchange(keys, 1, size--);
+            AlgoUtil.exchange(keys, 1, size--);
             sink(keys, 1, size);
         }
 
     }
 
-    private static void sink(Comparable[] keys, int start, int size) {
-        while (2 * start <= size) {
-            int leftChild = 2 * start;
-            int rightChild = leftChild + 1;
-            if (rightChild <= size && shouldBePreferredOver(keys, leftChild, rightChild)) {
-                if (shouldBePreferredOver(keys, leftChild, start)) {
-                    SortingUtil.exchange(keys, leftChild, start);
-                    start = leftChild;
-                } else {
-                    break;
-                }
-            } else if (rightChild <= size && shouldBePreferredOver(keys, rightChild, leftChild)) {
-                if (shouldBePreferredOver(keys, rightChild, start)) {
-                    SortingUtil.exchange(keys, rightChild, start);
-                    start = rightChild;
-                } else {
-                    break;
-                }
-
-            } else {
+    private static void sink(Comparable[] keys, int currentIndex, int size) {
+        while (2 * currentIndex <= size) {
+            int leftIndex = 2 * currentIndex;
+            int rightIndex = leftIndex + 1;
+            int childIndex = leftIndex;
+            if (leftIndex < size && !shouldBePreferredOver(keys, leftIndex, rightIndex)) {
+                childIndex = rightIndex;
+            }
+            if (shouldBePreferredOver(keys, currentIndex, childIndex)) {
                 break;
             }
+            AlgoUtil.exchange(keys, currentIndex, childIndex);
+            currentIndex = childIndex;
         }
     }
 
     private static boolean shouldBePreferredOver(Comparable[] keys, int leftChild, int rightChild) {
-        return SortingUtil.less(keys[leftChild], keys[rightChild]);
+        return AlgoUtil.less(keys[leftChild], keys[rightChild]);
     }
 }

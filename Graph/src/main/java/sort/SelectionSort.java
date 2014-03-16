@@ -1,6 +1,6 @@
 package sort;
 
-import java.util.Arrays;
+import utils.AlgoUtil;
 
 /**
  * Created by usman on 23/02/2014.
@@ -26,13 +26,13 @@ public class SelectionSort {
             int min = toSort[i];
             int indexToReplace = i;
             for (int j = i; j < toSort.length; j++) {
-                if (SortingUtil.less(toSort[j], min)) {
+                if (AlgoUtil.less(toSort[j], min)) {
                     min = toSort[j];
                     indexToReplace = j;
                 }
             }
             if (indexToReplace != i)
-                SortingUtil.exchange(toSort, i, indexToReplace);
+                AlgoUtil.exchange(toSort, i, indexToReplace);
         }
     }
 }

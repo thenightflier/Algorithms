@@ -1,5 +1,7 @@
 package sort;
 
+import utils.AlgoUtil;
+
 /**
  * Created by usman on 23/02/2014.
  */
@@ -89,9 +91,9 @@ public class MergeSort {
         Comparable leftValue = aux[leftIndex];
         Comparable rightValue = aux[righIndex];
         Comparable middleValue = aux[middleIndex];
-        if (SortingUtil.less(rightValue, leftValue) && SortingUtil.less(rightValue, middleValue)) {
+        if (AlgoUtil.less(rightValue, leftValue) && AlgoUtil.less(rightValue, middleValue)) {
             return righIndex;
-        } else if (SortingUtil.less(middleValue, leftValue) && SortingUtil.less(middleValue, rightValue)) {
+        } else if (AlgoUtil.less(middleValue, leftValue) && AlgoUtil.less(middleValue, rightValue)) {
             return middleIndex;
         } else {
             return leftIndex;
@@ -130,7 +132,7 @@ public class MergeSort {
                 a[i] = aux[rightIndex++];
             } else if (rightIndex > high) {
                 a[i] = aux[leftIndex++];
-            } else if (SortingUtil.less(aux[rightIndex], aux[leftIndex])) {
+            } else if (AlgoUtil.less(aux[rightIndex], aux[leftIndex])) {
                 a[i] = aux[rightIndex++];
             } else {
                 a[i] = aux[leftIndex++];
