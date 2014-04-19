@@ -6,7 +6,7 @@ package com.graph;
 public interface Graph {
 
     /**
-     *  V() = bob sedgewick
+     * V() = bob sedgewick
      *
      * @return number of vertices
      */
@@ -14,12 +14,12 @@ public interface Graph {
 
     /**
      * E() equivalent of bob
+     *
      * @return
      */
     int getNumberOfVertices();
 
     /**
-     *
      * @return
      */
     Iterable<Integer> getAdjacencyList(int vertex);

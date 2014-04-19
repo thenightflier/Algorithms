@@ -23,7 +23,7 @@ public class PriorityQueueTest {
 
     private void comparePriorityQueue() {
         PriorityQueueReplay replay = new PriorityQueueReplay(10);
-        Integer[] original = AlgoUtil.Distribution.RANDOM.create(replay.getMaximumSize());
+        Integer[] original = AlgoUtil.Distribution.RANDOM.create(replay.getMaximumSize(), 1);
         Integer[] sorted = Arrays.copyOf(original, original.length);
         Arrays.sort(sorted);
 //        System.out.println(Arrays.asList(sorted));

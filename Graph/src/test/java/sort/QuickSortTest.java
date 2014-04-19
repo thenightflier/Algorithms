@@ -15,7 +15,7 @@ public class QuickSortTest {
     public void shouldSortRegression() {
 
         for (int i = 0; i < 100; i++) {
-            Integer toSort[] = AlgoUtil.Distribution.RANDOM.create(10);
+            Integer toSort[] = AlgoUtil.Distribution.RANDOM.create(10, 1);
             Integer[] sorted = Arrays.copyOf(toSort, toSort.length);
             Integer[] sortedByJava = Arrays.copyOf(toSort, toSort.length);
             QuickSortReplay.sort(sorted);
@@ -35,7 +35,7 @@ public class QuickSortTest {
     public void shouldSortRegressionQS() {
 
         for (int i = 0; i < 100; i++) {
-            Integer toSort[] = AlgoUtil.Distribution.RANDOM.create(10);
+            Integer toSort[] = AlgoUtil.Distribution.RANDOM.create(10, 1);
             Integer[] sorted = Arrays.copyOf(toSort, toSort.length);
             Integer[] sortedByJava = Arrays.copyOf(toSort, toSort.length);
             QuickSort.sort(sorted);

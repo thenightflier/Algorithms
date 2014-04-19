@@ -12,7 +12,7 @@ public class UtilsTest {
 
     @Test
     public void shouldHaveCorrectRank() {
-        Integer[] toSort = AlgoUtil.Distribution.INCREASING.create(10);
+        Integer[] toSort = AlgoUtil.Distribution.INCREASING.create(10,1);
         Arrays.sort(toSort);
 //        System.out.println(AlgoUtil.rank(toSort, 0));
         for (int i = 0; i < toSort.length; i++) {

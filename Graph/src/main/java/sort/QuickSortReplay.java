@@ -12,7 +12,7 @@ import static utils.AlgoUtil.*;
 public class QuickSortReplay {
 
     public static void main(String[] args) {
-        Integer a[] = AlgoUtil.Distribution.RANDOM.create(10);
+        Integer a[] = AlgoUtil.Distribution.RANDOM.create(10,1);
         System.out.println(Arrays.asList(a));
         sort(a);
         System.out.println(Arrays.asList(a));

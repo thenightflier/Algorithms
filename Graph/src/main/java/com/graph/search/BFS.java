@@ -26,12 +26,12 @@ public class BFS {
     private void bfs(int startingNode) {
         Queue<Integer> nodesToTraverse = new LinkedList<Integer>();
         nodesToTraverse.add(startingNode);
-        isVisited[startingNode]=true;
+        isVisited[startingNode] = true;
         while (!nodesToTraverse.isEmpty()) {
             int parentNode = nodesToTraverse.remove();
             for (int node : this.graph.getAdjacencyList(parentNode)) {
                 if (!isVisited[node]) {
-                    edgeTo[node]=parentNode;
+                    edgeTo[node] = parentNode;
                     isVisited[node] = true;
                     nodesToTraverse.add(node);
                 }

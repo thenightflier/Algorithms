@@ -31,7 +31,39 @@
             <version>0.7.2</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
+    <profiles>
+        <profile>
+            <id>benchmarks</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.2.1</version>
+                        <executions>
+                            <execution>
+                                <id>caliper</id>
+                                <phase>compile</phase>
+                                <goals>
+                                    <goal>java</goal>
+                                </goals>
+                                <configuration>
+                                    <classpathScope>test</classpathScope>
+                                    <mainClass>com.google.caliper.runner.CaliperMain</mainClass>
+                                    <arguments>
+                                        <argument>problems.codility.MinimalDifferenceBenchmark</argument>
+                                        <argument>--instrument</argument>
+                                        <argument>runtime</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
 
 </project>

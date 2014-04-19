@@ -25,16 +25,16 @@ public class DepthFirstSearch {
         this.isVisited[startingNode] = true;
         for (int node : this.graph.getAdjacencyList(startingNode)) {
             if (!isVisited[node]) {
-                edgeTo[node]=startingNode;
+                edgeTo[node] = startingNode;
                 dfs(node);
             }
         }
 
     }
 
-    public boolean isConnected(int vertex){
+    public boolean isConnected(int vertex) {
         boolean vertexValid = graph.isVertexValid(vertex);
-        if(vertexValid){
+        if (vertexValid) {
             return isVisited[vertex];
         }
         return vertexValid;

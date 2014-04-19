@@ -8,7 +8,7 @@ import utils.AlgoUtil;
 public class HeapSort {
 
     public static void main(String[] args) {
-        Integer values[] = AlgoUtil.Distribution.SAWTOOTH.create(10);
+        Integer values[] = AlgoUtil.Distribution.SAWTOOTH.create(10, 1);
         HeapSort.sort(values);
         AlgoUtil.print(values);
 

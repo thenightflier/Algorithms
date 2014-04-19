@@ -7,10 +7,108 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
 
     private Node root;
 
+    public boolean isBinarySearchTree(Node root) {
+        return isBinarySearchTree(root, null, null);
+    }
+
+    private boolean isBinarySearchTree(Node root, Key min, Key max) {
+        if (root == null) {
+            return true;
+        }
+        if (min != null && root.key.compareTo(min) < 0) {
+            return false;
+        }
+        if (max != null && root.key.compareTo(max) > 0) {
+            return false;
+        }
+
+        return isBinarySearchTree(root.left, min, root.key) && isBinarySearchTree(root.right, root.key, max);
+    }
+
+    public Key floor(Key key) {
+        Node node = floor(root, key);
+        if (node == null) {
+            return null;
+        }
+        return node.key;
+    }
+
+    public Key ceil(Key key) {
+        Node node = ceil(root, key);
+        if (node == null) {
+            return null;
+        }
+        return node.key;
+    }
+
+    private Node ceil(Node root, Key key) {
+        if (root == null) {
+            return null;
+        }
+        int comparison = root.key.compareTo(key);
+        if (comparison == 0) {
+            return root;
+        }
+        if (comparison < 0) {
+            return ceil(root.right, key);
+        }
+        Node node = ceil(root.left, key);
+        if (node != null) {
+            return node;
+        }
+        return root;
+    }
+
+    private Node floor(Node root, Key key) {
+        if (root == null) {
+            return null;
+        }
+        int comparison = root.key.compareTo(key);
+        if (comparison == 0) {
+            return root;
+        }
+        if (comparison > 0) {
+            return floor(root.left, key);
+        }
+        Node node = floor(root.right, key);
+        if (node != null) {
+            return node;
+        }
+        return root;
+    }
 
     public Value get(Key key) {
 
         return get(root, key);
+    }
+
+    public Key minimum() {
+        if (root == null) {
+            return null;
+        }
+        return minimum(root).getKey();
+    }
+
+    public Key maximum() {
+        if (root == null) {
+            return null;
+        }
+        return maximum(root).key;
+    }
+
+    private Node maximum(Node root) {
+        if (root.right == null) {
+            return root;
+        }
+        return maximum(root.right);
+    }
+
+    private Node minimum(Node root) {
+        if (root.left == null) {
+            return root;
+        }
+        Node min = minimum(root.left);
+        return min;
     }
 
     private Value get(Node root, Key key) {

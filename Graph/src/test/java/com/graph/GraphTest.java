@@ -1,11 +1,8 @@
 package com.graph;
 
-import com.graph.AdjacencyListGraph;
-import com.graph.Graph;
-import junit.framework.TestCase;
 import org.junit.Test;
 
-import static junit.framework.TestCase.*;
+import static junit.framework.TestCase.assertEquals;
 
 /**
  * Created by usman on 08/11/2013.
@@ -13,12 +10,12 @@ import static junit.framework.TestCase.*;
 public class GraphTest {
 
     @Test
-    public void testGraph(){
+    public void testGraph() {
         Graph g = new AdjacencyListGraph(3);
-        g.addEdge(0,1);
-        g.addEdge(0,2);
+        g.addEdge(0, 1);
+        g.addEdge(0, 2);
         assertEquals(g.getNumberOfVertices(), 3);
-        assertEquals(g.getNumberOfEdges(),2);
+        assertEquals(g.getNumberOfEdges(), 2);
         System.out.print(g);
 
     }
