@@ -1,6 +1,7 @@
 package utils;
 
 import com.google.common.collect.Sets;
+import com.google.common.primitives.Ints;
 
 import java.util.Random;
 import java.util.Set;
@@ -89,6 +90,10 @@ public class AlgoUtil {
             }
         }
         return low;
+    }
+
+    public static void print(int[] solution) {
+        System.out.println(Ints.asList(solution));
     }
 
 
