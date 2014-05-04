@@ -1,8 +1,10 @@
 package utils;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.Sets;
 import com.google.common.primitives.Ints;
 
+import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
@@ -12,9 +14,12 @@ import java.util.Set;
 public class AlgoUtil {
 
     public static void print(Object[] toPrint) {
-        for (int i = 0; i < toPrint.length; i++) {
-            System.out.println("toPrint = " + toPrint[i].toString());
-        }
+        Joiner join = Joiner.on(",");
+        StringBuilder sb = new StringBuilder();
+        sb.append("{");
+        join.appendTo(sb, toPrint);
+        sb.append("}");
+        System.out.println(sb.toString());
     }
 
     public static long sum(int[] a) {
@@ -94,6 +99,17 @@ public class AlgoUtil {
 
     public static void print(int[] solution) {
         System.out.println(Ints.asList(solution));
+    }
+
+    public static void print(Integer[]... a) {
+        for (Integer[] i : a) {
+            print(i);
+            System.out.println();
+        }
+    }
+
+    public static void print(List<Integer> iterators) {
+
     }
 
 

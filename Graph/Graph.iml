@@ -45,6 +45,7 @@
     <orderEntry type="library" name="Maven: org.ow2.asm:asm-util:4.0" level="project" />
     <orderEntry type="library" name="Maven: org.ow2.asm:asm-xml:4.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.carrotsearch:junit-benchmarks:0.7.2" level="project" />
+    <orderEntry type="library" name="algs4" level="project" />
   </component>
 </module>
 
